@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football</title>
+
+    <link rel="icon" type="image/jpeg"
+          href="https://i.pinimg.com/736x/98/c1/80/98c1805f69c2ebb120e3079236045fc6.jpg">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            background-color: rgba(0, 0, 0, 0.85);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            padding: 1em 0;
+            backdrop-filter: blur(5px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: #e63946;
+            transform: scale(1.1);
+            outline: none;
+        }
+
+        /* ================= HOME SECTION ================= */
+        #home {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #111 100%);
+            animation: gradientMove 10s infinite alternate;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-top: 0.5em;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(230, 57, 70, 0.8);
+        }
+
+        #home p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.3em;
+        }
+
+        /* ================= GRID SYSTEM ================= */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8em;
+            margin-top: 3em;
+            padding: 20px 40px;
+        }
+
+        /* Small screens */
+        @media (max-width: 480px) {
+            .card-container {
+                padding: 20px;
+            }
+        }
+
+        /* ================= CARD STYLING ================= */
+        .card {
+            background-color: #111;
+            padding: 1.2em;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(255,255,255,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+            border: 1px solid #222;
+        }
+
+        .card:hover,
+        .card:focus-visible {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(230,57,70,0.4);
+            outline: none;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .card img:hover {
+            transform: scale(1.03);
+        }
+
+        /* ================= IMAGE MODAL ================= */
+        #imgModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imgModal img {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        /* ================= SECTIONS ================= */
+        section {
+            padding: 100px 50px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #e63946;
+            font-size: 2.3em;
+            margin-bottom: 0.4em;
+            text-shadow: 0 0 10px rgba(230,57,70,0.6);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #000;
+            color: #ccc;
+            text-align: center;
+            padding: 2em 0;
+            margin-top: 3em;
+        }
+
+        footer img {
+            width: 28px;
+            margin: 0 8px;
+            filter: invert(1);
+            transition: transform 0.2s;
+        }
+
+        footer img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="imgModal" onclick="closeImg()">
+    <img id="modalImg" alt="Expanded football image">
+</div>
+
+<nav>
+    <a href="https://b2029coadelacruz.github.io/Q2-Project-Proposal/">HOME</a>
+    <a href="https://kskdheksnd.github.io/Overview/">OVERVIEW</a>
+    <a href="https://kskdheksnd.github.io/Players/">PLAYERS</a>
+    <a href="https://kskdheksnd.github.io/Training/">TRAINING & STATS</a>
+    <a href="https://kskdheksnd.github.io/Hall-of-Fame/">HALL OF FAME</a>
+</nav>
+
+<section id="home">
+    <h1>WELCOME TO FOOTBALL</h1>
+    <p><em>A Comprehensive Guide to the Beautiful Game</em></p>
+    <p style="color:#e63946;">Project for Computer Science 3 — All sources credited.</p>
+
+    <div class="card-container">
+        <div class="card" tabindex="0">
+            <h2>Overview</h2>
+            <p><em>Get ORIENTED</em><br>Learn about football’s history, major leagues, and competitions.</p>
+            <img src="https://wallpapers.com/images/high/pelein-actionat-soccer-match-tfey81vpxpu6tb9q.webp"
+                 alt="Pele playing football"
+                 onclick="expandImg(this)">
+        </div>
+
+        <div class="card" tabindex="0">
+            <h2>Players</h2>
+            <p><em>Meet the LEGENDS</em><br>Discover the world’s top players.</p>
+            <img src="https://gray-weau-prod.gtv-cdn.com/resizer/v2/W5YJ4ZROJVDSVBY332QDZ67L4Y.jpg"
+                 alt="Football players"
+                 onclick="expandImg(this)">
+        </div>
+
+        <div class="card" tabindex="0">
+            <h2>Training & Stats</h2>
+            <p><em>Know the GAME</em><br>Explore techniques and analytics.</p>
+            <img src="https://i.pinimg.com/originals/e8/f7/03/e8f703d31bcfc347515577928399992b.jpg"
+                 alt="Football training"
+                 onclick="expandImg(this)">
+        </div>
+
+        <div class="card" tabindex="0">
+            <h2>Hall of Fame</h2>
+            <p><em>Know the CHAMPIONS</em><br>Legends who shaped history.</p>
+            <img src="https://pbs.twimg.com/media/E8Q4sHSWQAY5Sun.jpg"
+                 alt="Hall of Fame football players"
+                 onclick="expandImg(this)">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Football Project | Designed by WDProjSodiumDela Cruz, Maliuanag</p>
+    <div>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="Instagram"></a>
+    </div>
+</footer>
+
+<script>
+    function expandImg(img) {
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+    }
+
+    function closeImg() {
+        document.getElementById("imgModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
